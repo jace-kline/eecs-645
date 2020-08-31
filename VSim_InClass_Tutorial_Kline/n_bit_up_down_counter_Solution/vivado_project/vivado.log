@@ -1,0 +1,54 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Tue Aug 22 22:04:10 2017
+# Process ID: 9348
+# Current directory: H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2424 H:\01_My_KU_Material\KU_Material\KU_Academics\Teaching\01_EECS_645\2017_08_22\HW01 - Vivado Tutorial\HW01_VSim_Tutorial_Solution\n_bit_up_down_counter_Solution\vivado_project\vivado_project.xpr
+# Log file: H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project/vivado.log
+# Journal file: H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project/vivado_project.xpr}
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project'
+INFO: [Project 1-313] Project file moved from 'C:/Users/eelaraby/Desktop/HW01_VSim_Tutorial/n_bit_up_down_counter_Solution/vivado_project' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [Project 1-230] Project 'vivado_project.xpr' upgraded for this version of Vivado.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+update_compile_order -fileset sources_1
+launch_simulation
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'n_bit_up_down_counter_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project/vivado_project.sim/sim_1/behav'
+"xvhdl -m64 --relax -prj n_bit_up_down_counter_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/design_sources/n_bit_up_down_counter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity n_bit_up_down_counter
+INFO: [VRFC 10-163] Analyzing VHDL file "H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/simulation_sources/n_bit_up_down_counter_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity n_bit_up_down_counter_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project/vivado_project.sim/sim_1/behav'
+Vivado Simulator 2017.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe -wto c0e9c0c0e58d4a91986eb8ca26d29413 --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot n_bit_up_down_counter_tb_behav xil_defaultlib.n_bit_up_down_counter_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s) while executing 'H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project/vivado_project.sim/sim_1/behav/elaborate.bat' script. Please check that the file has the correct 'read/write/execute' permissions and the Tcl console output for any other possible errors or warnings.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 798.715 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Aug 22 22:05:13 2017...

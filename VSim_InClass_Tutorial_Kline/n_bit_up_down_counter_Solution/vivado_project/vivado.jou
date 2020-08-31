@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Tue Aug 22 22:04:10 2017
+# Process ID: 9348
+# Current directory: H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2424 H:\01_My_KU_Material\KU_Material\KU_Academics\Teaching\01_EECS_645\2017_08_22\HW01 - Vivado Tutorial\HW01_VSim_Tutorial_Solution\n_bit_up_down_counter_Solution\vivado_project\vivado_project.xpr
+# Log file: H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project/vivado.log
+# Journal file: H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {H:/01_My_KU_Material/KU_Material/KU_Academics/Teaching/01_EECS_645/2017_08_22/HW01 - Vivado Tutorial/HW01_VSim_Tutorial_Solution/n_bit_up_down_counter_Solution/vivado_project/vivado_project.xpr}
+update_compile_order -fileset sources_1
+launch_simulation

@@ -1,0 +1,17 @@
+Vivado Simulator 2017.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe -wto c0e9c0c0e58d4a91986eb8ca26d29413 --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot n_bit_up_down_counter_tb_behav xil_defaultlib.n_bit_up_down_counter_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling architecture behavioral of entity xil_defaultlib.n_bit_up_down_counter [\n_bit_up_down_counter(n_bits=5)...]
+Compiling architecture behavioral of entity xil_defaultlib.n_bit_up_down_counter_tb
+Built simulation snapshot n_bit_up_down_counter_tb_behav
