@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Wed Sep  2 17:00:07 2020
+# Process ID: 1908
+# Current directory: C:/Users/19136/Documents/dev/eecs-645/hw1/HW01_VSim_Tutorial_Kline/mod_m_up_dn_count/hw1_mod_m_up_dn_count/hw1_mod_m_up_dn_count.runs/synth_1
+# Command line: vivado.exe -log mod_m_up_dn_count.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mod_m_up_dn_count.tcl
+# Log file: C:/Users/19136/Documents/dev/eecs-645/hw1/HW01_VSim_Tutorial_Kline/mod_m_up_dn_count/hw1_mod_m_up_dn_count/hw1_mod_m_up_dn_count.runs/synth_1/mod_m_up_dn_count.vds
+# Journal file: C:/Users/19136/Documents/dev/eecs-645/hw1/HW01_VSim_Tutorial_Kline/mod_m_up_dn_count/hw1_mod_m_up_dn_count/hw1_mod_m_up_dn_count.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source mod_m_up_dn_count.tcl -notrace

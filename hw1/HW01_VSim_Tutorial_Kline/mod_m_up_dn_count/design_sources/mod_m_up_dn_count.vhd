@@ -1,3 +1,5 @@
+-- Author: Jace Kline
+-- Edited: 09/02
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
@@ -19,15 +21,32 @@ ARCHITECTURE behavioral OF mod_m_up_dn_count IS
    CONSTANT n_bits_out : NATURAL := count'length;
    
    CONSTANT max : NATURAL := m - 1;
-   CONSTANT min : NATURAL := 0;   
+   CONSTANT min : NATURAL := 0;  
    
    -- Internal signal declarations
     SIGNAL count_int : STD_LOGIC_VECTOR(n_bits_out - 1 DOWNTO 0) := (OTHERS => '0');
 
 BEGIN
-
-   -- insert your design here --
-
-   -----------------------------
-	
+    count <= count_int;
+    
+        asynch_reset : PROCESS(clk,rst)
+        BEGIN
+            IF (rst = '1') THEN
+                count_int <= (OTHERS => '0');
+            ELSIF (clk'EVENT AND clk = '1') THEN
+                IF (up_down = '0') THEN
+                    IF(count_int = min) THEN
+                        count_int <= STD_LOGIC_VECTOR(TO_UNSIGNED(max, n_bits_out));
+                    ELSE
+                        count_int <= count_int - 1;
+                    END IF;
+                ELSE
+                    IF(count_int = max) THEN
+                        count_int <= STD_LOGIC_VECTOR(TO_UNSIGNED(min, n_bits_out));
+                    ELSE
+                        count_int <= count_int + 1;
+                    END IF;
+                END IF;
+            END IF;
+        END PROCESS;
 END behavioral;
