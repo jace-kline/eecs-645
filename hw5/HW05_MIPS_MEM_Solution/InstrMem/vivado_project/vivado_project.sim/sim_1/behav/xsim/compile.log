@@ -1,0 +1,8 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW05_MIPS_MEM_Solution_Fall2020/InstrMem/design_sources/my_packages/my_package.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW05_MIPS_MEM_Solution_Fall2020/InstrMem/design_sources/InstrMem.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'InstrMem'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW05_MIPS_MEM_Solution_Fall2020/InstrMem/design_sources/my_packages/ieee_2008/math_real.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW05_MIPS_MEM_Solution_Fall2020/InstrMem/design_sources/my_packages/ieee_2008/math_real-body.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW05_MIPS_MEM_Solution_Fall2020/InstrMem/design_sources/my_packages/my_package-body.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW05_MIPS_MEM_Solution_Fall2020/InstrMem/simulation_sources/InstrMem_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'InstrMem_tb'

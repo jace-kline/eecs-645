@@ -1,0 +1,8 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW04_MIPS_RegFile_Solution/design_sources/my_packages/ieee_2008/math_real.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW04_MIPS_RegFile_Solution/design_sources/my_packages/my_package.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW04_MIPS_RegFile_Solution/design_sources/my_packages/ieee_2008/math_real-body.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW04_MIPS_RegFile_Solution/design_sources/my_packages/my_package-body.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW04_MIPS_RegFile_Solution/design_sources/regfile.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity RegFile
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/e190a104/Desktop/HW04_MIPS_RegFile_Solution/simulation_sources/regfile_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity regfile_tb

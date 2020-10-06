@@ -1,0 +1,40 @@
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Unable to capture context for thread 157840 in process 159476, can not generate back trace
+Exception at PC 0x000007FEFD1AA06D
+Unable to capture context for thread 157840 in process 159476, can not generate back trace
+Exception at PC 0x000007FEAD20BB93
+Printing stacktrace...
+
+Unable to capture context for thread 158468 in process 159476, can not generate back trace
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+[0]  [0x000007FEAD20BB93]
+[1]  [0x000007FEAD20BB93]
+[2]  [0x000007FEAD20B4A1]
+[3]  [0x000007FEAD20B3EF]
+[4]  [0x000007FEAD1F19FE]
+[5]  [0x000007FEAD1F0ED1]
+[6]  [0x000007FEAD1F0D76]
+[7]  [0x000007FEAD1979F6]
+[8]  [0x000007FEAD187AFB]
+[9]  [0x000007FEAD2AE90A]
+[10]  [0x000007FEAD2C9F87]
+[11]  [0x000007FEAD2CA05F]
+[12] (BaseThreadInitThunk+0xd) [0x00000000771759CD]
+[13] (RtlUserThreadStart+0x1d) [0x00000000773D385D]
+Done
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
+Exception at PC 0x000007FEFD1AA06D
