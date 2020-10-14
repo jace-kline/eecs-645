@@ -54,3 +54,73 @@ while(i > 0) {
 ### 2.26.3
 Suppose $t1 stores value N for some N >= 0. The case when i = 0 causes 2 instructions to execute. The case when i > 0 (one iteration) causes 5 instructions to execute. Given i = N, we will execute N full iterations followed by the i = 0 case. Therefore:
 ```Instructions executed = 5N + 2```
+
+
+## Problem 2.27
+Assume values a, b, i, and j are in registers $s0, $s1, $t0, and $t1. Also assume $s2 holds the value for the address of array D.
+```
+add $t0, $zero, $zero       # initialize i=0 for the outer loop
+
+# Lbl: Loop_Outer
+slt $t3, $t0, $s0           # let t3 = (i < a) ? 1 : 0
+beq $t3, $zero, Exit_Outer  # if t3 is false, branch to Exit_Outer label address
+add $t1, $zero, $zero       # initialize j=0 for the inner loop
+
+# Lbl: Loop_Inner
+slt $t3, $t1, $s1           # let t3 = (j < b) ? 1 : 0
+beq $t3, $zero, Exit_Inner  # if t3 is false, branch to Exit_Inner label address
+sll $t3, $t1, 2             # let t3 = (4 * j)
+add $t3, $s2, $t3           # let t3 = (address of array D) + (offset of value in t3)
+add $t4, $t0, $t1           # let t4 = i + j
+sw $t4, 0($t3)              # store value t4 in memory at address stored in t3
+addi $t1, $t1, 1            # j = j + 1
+j Loop_Inner                # jump back to the start of the inner loop
+
+# Lbl: Exit_Inner
+addi $t0, $t0, 1            # i = i + 1
+j Loop_Outer                # jump back to the start of the outer loop
+
+# Lbl: Exit_Outer
+...
+```
+
+## Problem 2.31
+### Part 1: Implement fib in MIPS assembly
+We assume that $v0 is the return value register and the $a0 register shall hold the argument n on each recursive call.
+```
+# Lbl: fib_0                # Base Case (n == 0)
+bne $a0, $zero, fib1        # if (n != 0) goto fib_1
+add $v0, $zero, $zero       # otherwise, store return value 0 into $v0
+jr $ra                      # jump back to return address
+
+# Lbl: fib_1                # Base Case (n == 1)
+addi $t0, $zero, 1          # let t0 = 1
+bne $a0, $t0, fib_rec       # if (n != 1) goto fib_rec
+addi $v0, $zero, 1          # otherwise, store return value 1 into $v0
+jr $ra                      # jump back to return address
+
+# Lbl: fib_rec              # Recursive Case (n > 1)
+addi $sp, $sp, -8           # Allocate a stack frame to hold the caller's argument $a0 and caller's return address $ra
+sw $ra, 4($sp)              # Store $ra on the stack
+sw $a0, 0($sp)              # Store $a0 on the stack
+addi $a0, $a0, -1           # Decrement the argument n for our first recursive call (n = n - 1)
+jal fib_0                   # store next instruction's address in $ra and jump (recursive) to the start of the procedure -> calling fib(n-1)
+add $t0, $v0, $zero         # let t0 = return value of fib(n-1)
+addi $a0, $a0, -1           # Decrement argument again (n = n - 1)
+jal fib_0                   # jump and link -> calling fib(n-2)
+add $v0, $t0, $v0           # return value = fib(n-1) + fib(n-2)
+lw $a0, 0($sp)              # reload argument n from stack into $a0
+lw $ra, 4($sp)              # reload caller's return address from the stack into $ra
+addi $sp, $sp, 8            # reset the stack pointer to last frame
+jr $ra                      # return to caller
+```
+
+### Part 2: Number of MIPS instructions
+Suppose we are given some n where n >= 0. We must compute the number of MIPS instructions it will take to compute fib(n).
+```
+Let y(n) be the function that measures the number of MIPS instructions as a function on n.
+We can see that:
+y(0) = 3
+y(1) = 1 + 4 = 5
+y(2) = 1 + 2 + 13 = 16
+```
