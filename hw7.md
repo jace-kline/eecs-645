@@ -183,3 +183,32 @@ Hence, we get the particular form of our solution as a function of only n:
 y(n) = -16 + (4.357 * -0.618^n) + (14.643 * 1.618^n)
 ```
 
+## Problem 2.34
+Assume the declaration for 'func' is "int func(int a, int b)".
+```
+# Lbl: f
+addi $sp, $sp, -20      # Allocate stack frame (4 for each argument (4 args) + 4 for return address)
+sw $ra, 16($sp)         # Store return address $ra at the top address of the stack frame
+sw $a3, 12($sp)         # Push arguments $a0, $a1, $a2, $a3 in reverse order (right to left) onto stack
+sw $a2, 8($sp)
+sw $a1, 4($sp)
+sw $a0, 0($sp)
+jal func                # Since $a0 and $a1 are the same in our inner call to func, just jump and link func
+add $a0, $v0, $zero     # move the return value from the inner call to func into the $a0 register (first arg)
+add $a1, $a3, $a4       # the 2nd arg to the outer func call is c + d
+jal func                # jump and link to func (outer func call) -> we want to return what this returns
+lw $a0, 0($sp)          # Reload argument registers from the stack
+lw $a1, 4($sp)
+lw $a2, 8($sp)
+lw $a3, 12($sp)
+lw $ra, 16($sp)         # Reload the return address register from the stack
+jr $ra                  # Since $v0 is already set from the last call to func, just return
+
+# Lbl: func
+...
+```
+
+## Problem 2.46
+### 2.46.1
+
+### 2.46.2
