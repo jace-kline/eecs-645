@@ -120,7 +120,40 @@ Suppose we are given some n where n >= 0. We must compute the number of MIPS ins
 ```
 Let y(n) be the function that measures the number of MIPS instructions as a function on n.
 We can see that:
+y(0) = instructions for base case fib(0)
 y(0) = 3
-y(1) = 1 + 4 = 5
-y(2) = 1 + 2 + 13 = 16
+
+y(1) = instructions for base case fib(1) = 1 (from fib_0) + 4 (from fib_1)
+y(1) = 5
+
+y(2) = instructions for fib(2) = y(0) + y(1) + (1 (from fib_0) + 2 (from fib_1) + 13 (from fib_rec))
+y(2) = 24
+
+Inductive Case (n > 1):
+y(n) = 16 + y(n-1) + y(n-2)
+
+We must eliminate the constant term 16 from this recurrence relation in order to find a characteristic polynomial. Hence, we must consider y(n) - y(n-1).
+y(n-1) = 16 + y(n-2) + y(n-3)
+
+=> y(n) - y(n-1) = y(n-1) - y(n-3) 
+=> y(n) - 2y(n-2) + y(n-3) = 0
+
+From the above difference equation, we may find the characteristic equation:
+r^n - 2r^(n-1) + r^(n-3) = 0
+
+After factoring r^(n-3) on the left side, we get...
+r^(n-3) * (r^3 - 2r^2 + 1) = 0
+
+We must find the roots of the polynomial (r^3 - 2r^2 + 1) = 0.
+By simple observation, we find that one of the roots is r = 1. This is because 1^3 - 2(1^2) + 1 = 0. Knowing this root, we can factor the original polynomial by (r - 1) to get a quadratic term that will allow us to utilize the quadratic formula. Hence, we divide (r^3 - 2r^2 + 1) / (r - 1) = r^2 - r - 1.
+Thus, we rewrite the original characteristic polynomial as: (r^3 - 2r^2 + 1) = (r - 1)(r^2 - r - 1).
+
+Using the quadratic formula, we find that the roots of the polynomial term r^2 - r - 1 are (1 - sqrt(5) / 2) and (1 + sqrt(5) / 2). These roots evaluate to approximately -0.618, and 1.618, respectively.
+
+Hence we have three roots for our cubic characteristic polynomial:
+r1 = 1
+r2 = -0.618
+r3 = 1.618
+
+
 ```
