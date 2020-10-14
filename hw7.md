@@ -210,5 +210,78 @@ jr $ra                  # Since $v0 is already set from the last call to func, j
 
 ## Problem 2.46
 ### 2.46.1
+```
+Suppose a program under the original architecture has the following measures:
 
+Na = # of arithmetic instructions
+Nl = # of load/store instructions
+Nb = # of branch instructions
+N = Na + Nl + Nb = # of total program instructions
+
+CPIa = cycles per arithmetic instruction
+CPIl = cycles per load/store instruction
+CPIb = cycles per branch instruction
+
+Ca = Na * CPIa = # of cycles of arithmetic instructions
+Cl = Nl * CPIl = # of cycles of load/store instructions
+Cb = Nb * CPIb = # of cycles of branch instructions
+C = Ca + Cl + Cb = # of total CPU cycles for program
+
+T = time / 1 CPU cycle = clock cycle time
+
+t = T * C = program time execution
+
+Now, we consider a new architecture that provides the following:
+- reduces # of arithmetic instructions by 25%
+- clock cycle time increases by 10%
+
+We can describe these changes as follows:
+Na' = 0.75 * Na
+=> Ca' = 0.75 * Ca
+=> C' = C - (0.25 * Ca)
+T' = 1.1 * T
+
+We express the following:
+t = T * C
+t' = T' * C' = (1.1 * T) * (C - (0.25 * Ca))
+
+s = t / t' = speedup of program from original architecture to new architecture
+
+For some program, we want to compute the value for r.
+
+From the problem statement, we know that the given program has the following parameters filled:
+Na = 500,000,000
+Nl = 300,000,000
+Nb = 100,000,000
+CPIa = 1
+CPIl = 10
+CPIb = 3
+
+Hence, by plugging these values in to the equations, we find the speedup of the new architecture compared to the original architecture:
+s = 0.94
+
+This indicates that the new architecture had a speedup factor of less than 1 for the given program, which is equivalent to a slowdown.
+Therefore, we conclude that this is not a good design choice for the given program.
+```
 ### 2.46.2
+```
+Suppose that an improved architecture offers double performance on arithmetic instructions.
+We want to compute the speedup effect this has on our target program.
+
+CPIa' = 0.5 * CPIa
+=> Ca' = 0.5 * Ca
+=> C' = C - (0.5 * Ca)
+
+We want to compute:
+s = t / t' = (T * C) / (T * C')
+
+By plugging in the program parameters shown in part 1, we get a speedup of:
+s = 1.0704
+
+If the upgraded architecture could offer 10x performance on arithmetic instructions, then the speedup factor could be computed as follows:
+
+CPIa' = 0.1 * CPIa
+
+Using the same logic as above, we get:
+s = t / t' = 
+```
