@@ -86,7 +86,7 @@ j Loop_Outer                # jump back to the start of the outer loop
 
 ## Problem 2.31
 ### Part 1: Implement fib in MIPS assembly
-We assume that $v0 is the return value register and the $a0 register shall hold the argument n on each recursive call.
+We assume that $v0 is the return value register and the $a0 register shall hold the argument n on each recursive call. We assume that we are not required to save and restore the value of temporary register $t0 when we return.
 ```
 # Lbl: fib_0                # Base Case (n == 0)
 bne $a0, $zero, fib1        # if (n != 0) goto fib_1
@@ -100,18 +100,20 @@ addi $v0, $zero, 1          # otherwise, store return value 1 into $v0
 jr $ra                      # jump back to return address
 
 # Lbl: fib_rec              # Recursive Case (n > 1)
-addi $sp, $sp, -8           # Allocate a stack frame to hold the caller's argument $a0 and caller's return address $ra
-sw $ra, 4($sp)              # Store $ra on the stack
-sw $a0, 0($sp)              # Store $a0 on the stack
+addi $sp, $sp, -12          # Allocate a stack frame to hold the caller's argument $a0 and caller's return address $ra
+sw $ra, 8($sp)              # Store $ra on the stack
+sw $a0, 4($sp)              # Store $a0 on the stack
+sw $s0, 0($sp)              # Store $s0 on the stack (we use this in our computation)
 addi $a0, $a0, -1           # Decrement the argument n for our first recursive call (n = n - 1)
 jal fib_0                   # store next instruction's address in $ra and jump (recursive) to the start of the procedure -> calling fib(n-1)
 add $t0, $v0, $zero         # let t0 = return value of fib(n-1)
 addi $a0, $a0, -1           # Decrement argument again (n = n - 1)
 jal fib_0                   # jump and link -> calling fib(n-2)
 add $v0, $t0, $v0           # return value = fib(n-1) + fib(n-2)
-lw $a0, 0($sp)              # reload argument n from stack into $a0
-lw $ra, 4($sp)              # reload caller's return address from the stack into $ra
-addi $sp, $sp, 8            # reset the stack pointer to last frame
+lw $s0, 0($sp)              # reload the original value of $s0
+lw $a0, 4($sp)              # reload argument (n) from stack into $a0
+lw $ra, 8($sp)              # reload caller's return address from the stack into $ra
+addi $sp, $sp, 12           # reset the stack pointer to last frame
 jr $ra                      # return to caller
 ```
 
@@ -126,14 +128,14 @@ y(0) = 3
 y(1) = instructions for base case fib(1) = 1 (from fib_0) + 4 (from fib_1)
 y(1) = 5
 
-y(2) = instructions for fib(2) = y(0) + y(1) + (1 (from fib_0) + 2 (from fib_1) + 13 (from fib_rec))
-y(2) = 24
+y(2) = instructions for fib(2) = y(0) + y(1) + (1 (from fib_0) + 2 (from fib_1) + 15 (from fib_rec))
+y(2) = 26
 
 Inductive Case (n > 1):
-y(n) = 16 + y(n-1) + y(n-2)
+y(n) = 18 + y(n-1) + y(n-2)
 
 We must eliminate the constant term 16 from this recurrence relation in order to find a characteristic polynomial. Hence, we must consider y(n) - y(n-1).
-y(n-1) = 16 + y(n-2) + y(n-3)
+y(n-1) = 18 + y(n-2) + y(n-3)
 
 => y(n) - y(n-1) = y(n-1) - y(n-3) 
 => y(n) - 2y(n-2) + y(n-3) = 0
@@ -172,15 +174,15 @@ y(n) = c1 + (c2 * -0.618^n) + (c3 * 1.618^n)
 We have our general solution above. We must apply our initial conditions y(0)=3, y(1)=5, and y(2)=24 to find the coefficients c1, c2, and c3.
 y(0) = 3 = c1 + c2 + c3
 y(1) = 5 = c1 + (c2 * -0.618) + (c3 * 1.618)
-y(2) = 24 = c1 + c1 + (c2 * -0.618^2) + (c3 * 1.618^2)
+y(2) = 26 = c1 + c1 + (c2 * -0.618^2) + (c3 * 1.618^2)
 
 Using a 3x3 matrix and inverting it, we solve this system of equations above to get the values of c1, c2, and c3. The values are:
-c1 = -16
-c2 = ((95 - 23 * sqrt(5)) / 10) = 4.357
-c3 = ((95 + 23 * sqrt(5)) / 10) = 14.643
+c1 = -18
+c2 = ((21 - 5 * sqrt(5)) / 2) = 4.9098
+c3 = ((21 + 5 * sqrt(5)) / 2) = 16.0902
 
 Hence, we get the particular form of our solution as a function of only n:
-y(n) = -16 + (4.357 * -0.618^n) + (14.643 * 1.618^n)
+y(n) = -18 + (4.9098 * -0.618^n) + (16.0902 * 1.618^n)
 ```
 
 ## Problem 2.34
@@ -273,7 +275,7 @@ CPIa' = 0.5 * CPIa
 => C' = C - (0.5 * Ca)
 
 We want to compute:
-s = t / t' = (T * C) / (T * C')
+s = t / t' = (T * C) / (T * C') = C / C'
 
 By plugging in the program parameters shown in part 1, we get a speedup of:
 s = 1.0704
@@ -283,5 +285,9 @@ If the upgraded architecture could offer 10x performance on arithmetic instructi
 CPIa' = 0.1 * CPIa
 
 Using the same logic as above, we get:
-s = t / t' = 
+s = 1.1343
+
+In conclusion,
+If arithmetic instructions get 2x improvement: speedup = 1.0704
+If arithmetic instructions get 10x improvement: speedup = 1.1343
 ```
