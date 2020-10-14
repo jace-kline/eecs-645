@@ -119,7 +119,7 @@ jr $ra                      # return to caller
 Suppose we are given some n where n >= 0. We must compute the number of MIPS instructions it will take to compute fib(n).
 ```
 Let y(n) be the function that measures the number of MIPS instructions as a function on n.
-We can see that:
+We can find our initial conditions as follows:
 y(0) = instructions for base case fib(0)
 y(0) = 3
 
@@ -155,5 +155,31 @@ r1 = 1
 r2 = -0.618
 r3 = 1.618
 
+We have 3 roots, and therefore N = 3.
 
+Now that we have computed the roots of the characteristic equation, we can express the general form of the solution to the difference equation.
+The general form is as follows:
+y(n) = sum of 1 to N : ((sum of 0 to (mi - 1) : (cj * n^j)) * ri^n), where each cj is a constant
+
+Since the multiplicity (mi) of each of our roots is 1, we know that mi - 1 = 0 for all i.
+By filling in N=3, we can express the general solution as...
+y(n) = sum of 1 to 3 : ( ci * ri^n ), where each ci is a constant.
+y(n) = (c1 * r1^n) + (c2 * r2^n) + (c3 * r3^n)
+
+By filling in the root values r1, r2, and r3 and simplifying, we get...
+y(n) = c1 + (c2 * -0.618^n) + (c3 * 1.618^n)
+
+We have our general solution above. We must apply our initial conditions y(0)=3, y(1)=5, and y(2)=24 to find the coefficients c1, c2, and c3.
+y(0) = 3 = c1 + c2 + c3
+y(1) = 5 = c1 + (c2 * -0.618) + (c3 * 1.618)
+y(2) = 24 = c1 + c1 + (c2 * -0.618^2) + (c3 * 1.618^2)
+
+Using a 3x3 matrix and inverting it, we solve this system of equations above to get the values of c1, c2, and c3. The values are:
+c1 = -16
+c2 = ((95 - 23 * sqrt(5)) / 10) = 4.357
+c3 = ((95 + 23 * sqrt(5)) / 10) = 14.643
+
+Hence, we get the particular form of our solution as a function of only n:
+y(n) = -16 + (4.357 * -0.618^n) + (14.643 * 1.618^n)
 ```
+
