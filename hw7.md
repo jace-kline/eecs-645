@@ -52,5 +52,5 @@ while(i > 0) {
 ```
 
 ### 2.26.3
-Suppose $t1 stores value N for some N >= 0. The case when i = 0 causes 2 instructions to execute. The case when i > 0 (one iteration) causes 5 instructions to execute. Given i = N, we will execute N full iterations followed by the i = 0 case. Therefore we get:
+Suppose $t1 stores value N for some N >= 0. The case when i = 0 causes 2 instructions to execute. The case when i > 0 (one iteration) causes 5 instructions to execute. Given i = N, we will execute N full iterations followed by the i = 0 case. Therefore:
 ```Instructions executed = 5N + 2```
