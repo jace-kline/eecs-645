@@ -53,7 +53,9 @@ while(i > 0) {
 
 ### 2.26.3
 Suppose $t1 stores value N for some N >= 0. The case when i = 0 causes 2 instructions to execute. The case when i > 0 (one iteration) causes 5 instructions to execute. Given i = N, we will execute N full iterations followed by the i = 0 case. Therefore:
-```Instructions executed = 5N + 2```
+```
+Instructions executed = 5N + 2
+```
 
 
 ## Problem 2.27
@@ -171,7 +173,7 @@ y(n) = (c1 * r1^n) + (c2 * r2^n) + (c3 * r3^n)
 By filling in the root values r1, r2, and r3 and simplifying, we get...
 y(n) = c1 + (c2 * -0.618^n) + (c3 * 1.618^n)
 
-We have our general solution above. We must apply our initial conditions y(0)=3, y(1)=5, and y(2)=24 to find the coefficients c1, c2, and c3.
+We have our general solution above. We must apply our initial conditions y(0)=3, y(1)=5, and y(2)=26 to find the coefficients c1, c2, and c3.
 y(0) = 3 = c1 + c2 + c3
 y(1) = 5 = c1 + (c2 * -0.618) + (c3 * 1.618)
 y(2) = 26 = c1 + c1 + (c2 * -0.618^2) + (c3 * 1.618^2)
